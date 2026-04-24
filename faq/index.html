@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Perguntas Frequentes · Proteinomat</title>
+<meta name="description" content="Respostas às perguntas mais frequentes sobre máquinas Proteinomat, o modelo para ginásios e o programa de parceiros territoriais." />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="canonical" href="https://proteinomat.pt/faq/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/main.css?v=10" />
+<style>
+.faq-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line-dark);
+  padding-bottom: 0;
+}
+.faq-tab {
+  padding: 16px 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(10,22,40,0.5);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  position: relative;
+  transition: color 0.2s;
+}
+.faq-tab:hover { color: var(--navy); }
+.faq-tab.active { color: var(--navy); }
+.faq-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--green);
+  border-radius: 2px;
+}
+.faq-panel { display: none; }
+.faq-panel.active { display: block; }
+</style>
+</head>
+<body class="lang-pt">
+
+<nav class="top">
+  <div class="inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>PROTEINOMAT</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#how" data-lang="pt">Como Funciona</a><a href="../index.html#how" data-lang="en">How It Works</a></li>
+      <li><a href="../index.html#tech" data-lang="pt">Tecnologia</a><a href="../index.html#tech" data-lang="en">Technology</a></li>
+      <li><a href="../partners/index.html" data-lang="pt">Parceiros</a><a href="../partners/index.html" data-lang="en">Partners</a></li>
+      <li><a href="../faq/index.html" class="active">FAQ</a></li>
+      <li><a href="../index.html#contact" data-lang="pt">Contacto</a><a href="../index.html#contact" data-lang="en">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang">
+        <button data-set-lang="pt">PT</button>
+        <button data-set-lang="en">EN</button>
+      </div>
+      <a href="../index.html#contact" class="btn-nav">
+        <span data-lang="pt">Contacto</span><span data-lang="en">Contact</span><span>→</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html#how" data-lang="pt">Como Funciona</a><a href="../index.html#how" data-lang="en">How It Works</a>
+  <a href="../index.html#tech" data-lang="pt">Tecnologia</a><a href="../index.html#tech" data-lang="en">Technology</a>
+  <a href="../partners/index.html" data-lang="pt">Parceiros</a><a href="../partners/index.html" data-lang="en">Partners</a>
+  <a href="../faq/index.html">FAQ</a>
+  <a href="../index.html#contact" data-lang="pt">Contacto</a><a href="../index.html#contact" data-lang="en">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container-narrow">
+    <div class="eyebrow"><span data-lang="pt">FAQ</span><span data-lang="en">FAQ</span></div>
+    <h1 data-lang="pt">Perguntas <span class="accent">frequentes</span>.</h1>
+    <h1 data-lang="en">Frequently asked <span class="accent">questions</span>.</h1>
+    <p class="lead" data-lang="pt">Se não encontras resposta aqui, <a href="../index.html#contact">escreve-nos</a> — respondemos em 24–48h úteis.</p>
+    <p class="lead" data-lang="en">If the answer isn't here, <a href="../index.html#contact">get in touch</a> — we reply in 24–48 business hours.</p>
+  </div>
+</section>
+
+<section class="longform">
+  <div class="container-narrow">
+
+    <div class="faq-tabs">
+      <button class="faq-tab active" data-panel="gyms" data-lang="pt">Para Ginásios</button>
+      <button class="faq-tab active" data-panel="gyms" data-lang="en">For Gyms</button>
+      <button class="faq-tab" data-panel="partners" data-lang="pt">Para Parceiros</button>
+      <button class="faq-tab" data-panel="partners" data-lang="en">For Partners</button>
+      <button class="faq-tab" data-panel="general" data-lang="pt">Geral</button>
+      <button class="faq-tab" data-panel="general" data-lang="en">General</button>
+    </div>
+
+    <!-- PANEL: GYMS -->
+    <div class="faq-panel active" id="panel-gyms">
+      <div class="faq-category">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quanto custa ter uma máquina no meu ginásio?</span>
+            <span data-lang="en">How much does it cost to have a machine in my gym?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Zero custo inicial. Nós financiamos, fornecemos, instalamos e mantemos a máquina. O ginásio cede o espaço (cerca de 1m²) e uma tomada elétrica. Em troca, recebe uma comissão sobre cada transação.</p>
+            <p data-lang="en">Zero upfront cost. We finance, supply, install and maintain the machine. The gym provides the space (~1m²) and a power outlet. In return, you get a commission on every transaction.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quanto espaço preciso?</span>
+            <span data-lang="en">How much space do I need?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Aproximadamente 80cm de largura × 80cm de profundidade × 190cm de altura. Ideal perto da receção ou zona de saída dos treinos. Precisa de tomada 220V e ligação à internet (Wi-Fi ou dados móveis — nós configuramos).</p>
+            <p data-lang="en">Roughly 80cm wide × 80cm deep × 190cm tall. Ideal near reception or the post-workout exit zone. Needs a 220V outlet and internet (Wi-Fi or mobile data — we configure it).</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quem trata da manutenção e reabastecimento?</span>
+            <span data-lang="en">Who handles maintenance and restocking?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Nós, ou o parceiro territorial da tua zona. O ginásio não tem nenhuma responsabilidade operacional. Tu e a tua equipa não mexem na máquina. A nossa plataforma monitoriza stocks em tempo real e agenda visitas antes de acabar qualquer produto.</p>
+            <p data-lang="en">We do — or our territory partner in your area. The gym has zero operational responsibility. You and your staff never touch the machine. Our platform monitors stock in real time and schedules visits before anything runs out.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">E se a máquina avariar?</span>
+            <span data-lang="en">What if the machine breaks?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Temos monitorização remota 24/7. A maioria dos problemas é diagnosticada e resolvida antes de dares por isso. Em caso de avaria física, temos SLA de resposta em 48h úteis em todo o território continental.</p>
+            <p data-lang="en">We have 24/7 remote monitoring. Most issues get detected and resolved before you even notice. For physical breakdowns, we commit to a 48-business-hour response SLA across the mainland.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Posso personalizar com a marca do meu ginásio?</span>
+            <span data-lang="en">Can I brand it with my gym's logo?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Sim. O ecrã tátil HD permite inserir o teu logótipo, cores, promoções internas ou ofertas de PTs. Podes também anunciar aulas em grupo ou desafios do clube.</p>
+            <p data-lang="en">Yes. The HD touchscreen supports your logo, colors, in-house promotions, or PT offers. You can also advertise group classes or club challenges.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Os produtos são de qualidade?</span>
+            <span data-lang="en">Are the products actually good?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Trabalhamos só com whey premium e marcas certificadas. O catálogo rotativo inclui whey concentrado, isolado, opções vegan, e receitas quentes (chocolate quente proteico) e frias. Cada receita é testada antes de entrar na máquina.</p>
+            <p data-lang="en">We only work with premium whey and certified brands. The rotating catalog includes whey concentrate, isolate, vegan options, and both hot (protein hot chocolate) and cold recipes. Every recipe is tested before it enters the machine.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Posso cancelar se não estiver a correr bem?</span>
+            <span data-lang="en">Can I cancel if it's not working out?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">O contrato típico é de 24 meses, com cláusula de saída negociável após os primeiros 6 meses se a performance estiver claramente abaixo do esperado. Falamos sobre isto antes de assinar — sem surpresas.</p>
+            <p data-lang="en">The standard contract is 24 months, with a negotiable exit clause after the first 6 months if performance is clearly below expectations. We discuss this before signing — no surprises.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quanto tempo até estar instalada?</span>
+            <span data-lang="en">How long until it's installed?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Tipicamente 2–4 semanas desde a assinatura do contrato até a máquina estar operacional. Depende do stock disponível e da tua agenda de instalação.</p>
+            <p data-lang="en">Typically 2–4 weeks from contract signature to operational machine. Depends on current stock availability and your installation schedule.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: PARTNERS -->
+    <div class="faq-panel" id="panel-partners">
+      <div class="faq-category">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quanto posso ganhar como parceiro territorial?</span>
+            <span data-lang="en">How much can I earn as a territory partner?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Varia muito consoante o território, o número de máquinas, e o tráfego dos ginásios. A estrutura é uma percentagem fixa do lucro líquido de cada máquina no teu território, recorrente enquanto ela funcionar. Abrimos os números exatos na primeira conversa depois da tua candidatura.</p>
+            <p data-lang="en">It varies depending on territory, number of machines, and gym traffic. The structure is a fixed percentage of net profit from each machine in your territory, recurring for as long as it runs. We share exact numbers on the first call after your application.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Tenho de comprar as máquinas?</span>
+            <span data-lang="en">Do I have to buy the machines?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Não. Zero CAPEX. Nós financiamos as máquinas. Tu trazes o território, as relações e a operação local.</p>
+            <p data-lang="en">No. Zero CAPEX. We finance the machines. You bring the territory, the relationships, and the local operation.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quanto tempo preciso de investir?</span>
+            <span data-lang="en">How much time do I need to put in?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Nos primeiros meses, contar com 10–15h/semana para prospetar, visitar ginásios e fechar contratos. Depois da instalação das primeiras máquinas, a operação mensal (reabastecimento, monitorização, relação) fica em 2–5h por máquina.</p>
+            <p data-lang="en">In the first few months, expect 10–15h/week prospecting, visiting gyms, and closing contracts. Once your first machines are installed, monthly operation (restocking, monitoring, relationships) drops to 2–5h per machine.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Posso ser parceiro em regime part-time?</span>
+            <span data-lang="en">Can I be a partner part-time?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Sim — vários dos nossos parceiros mantêm o trabalho principal. O modelo é desenhado para escalar devagar. O que não funciona é tentar fazer zero horas — o território exclusivo é teu, se não avançares fica bloqueado.</p>
+            <p data-lang="en">Yes — several of our partners keep their main job. The model is designed to scale gradually. What doesn't work is zero hours — the exclusive territory is yours, and if you don't move, it stays blocked.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">O que é exclusividade de território?</span>
+            <span data-lang="en">What does territory exclusivity mean?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Uma vez atribuído, o território é teu. Ninguém mais — nem a Proteinomat diretamente — fecha contratos com ginásios nessa zona sem ti. Se fecharmos uma venda direta por canal inbound, entras na operação e recebes a tua partilha.</p>
+            <p data-lang="en">Once assigned, the territory is yours. No one — not even Proteinomat directly — closes deals with gyms in that zone without you. If we close an inbound direct sale, you're brought into the operation and earn your share.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">E se o meu território não trouxer resultados?</span>
+            <span data-lang="en">What if my territory doesn't produce?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">O contrato de parceria inclui metas mínimas de atividade (não necessariamente de fecho) nos primeiros 6 meses. Se claramente não há tração, revemos em conjunto — o território pode ser realocado. Ninguém fica preso a um acordo que não funciona.</p>
+            <p data-lang="en">The partnership contract includes minimum activity targets (not necessarily closing targets) for the first 6 months. If there's clearly no traction, we review together — territories can be reassigned. No one stays stuck in a deal that doesn't work.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Posso escolher os ginásios em que quero vender?</span>
+            <span data-lang="en">Can I choose which gyms I target?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Sim, dentro do teu território. Damos-te ICP (perfil ideal de cliente), material comercial e apoio de vendas, mas a estratégia local e a priorização de ginásios é tua.</p>
+            <p data-lang="en">Yes, within your territory. We provide an ICP (ideal customer profile), sales collateral, and sales support, but the local strategy and gym prioritization is yours.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Como recebo a minha partilha?</span>
+            <span data-lang="en">How do I get paid?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Transferência mensal para o teu IBAN, com extrato detalhado por máquina. O parceiro emite factura (recibo verde ou empresa) contra o nosso relatório mensal. Tens acesso ao dashboard em tempo real para conferir transações e custos.</p>
+            <p data-lang="en">Monthly bank transfer to your IBAN, with a detailed per-machine statement. The partner invoices us against our monthly report (as sole trader or company). You have real-time dashboard access to verify transactions and costs.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Onde estão os territórios abertos?</span>
+            <span data-lang="en">Which territories are open?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Atualmente: Lisboa, Porto, Coimbra, Algarve, Braga, Aveiro em Portugal. Madrid, Barcelona e Valência em Espanha. Abrimos novos territórios consoante a procura — candidata-te na mesma se estás noutra zona.</p>
+            <p data-lang="en">Currently: Lisbon, Porto, Coimbra, Algarve, Braga, Aveiro in Portugal. Madrid, Barcelona and Valencia in Spain. We open new territories based on demand — apply anyway if you're elsewhere.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: GENERAL -->
+    <div class="faq-panel" id="panel-general">
+      <div class="faq-category">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quem está por trás do Proteinomat?</span>
+            <span data-lang="en">Who's behind Proteinomat?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Proteinomat é uma marca operada pela Batista &amp; Lazarchick, Lda (NIF 519003829), sediada em Pombal, Portugal. Foco: infraestrutura de batidos de proteína para ginásios em Portugal, Espanha e mercados adjacentes.</p>
+            <p data-lang="en">Proteinomat is a brand operated by Batista &amp; Lazarchick, Lda (NIF 519003829), headquartered in Pombal, Portugal. Focus: protein-shake infrastructure for gyms in Portugal, Spain, and adjacent markets.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Onde é que as máquinas já estão instaladas?</span>
+            <span data-lang="en">Where are the machines currently installed?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Temos máquinas em operação em Portugal, com plano de expansão para 60+ unidades até final de 2026. Lista atualizada de ginásios parceiros disponível a pedido.</p>
+            <p data-lang="en">We have machines running in Portugal, with a roadmap to 60+ units by end of 2026. Current partner gym list available on request.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Os membros do ginásio como pagam?</span>
+            <span data-lang="en">How do gym members pay?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Cartão contactless (débito/crédito), MBway, Apple Pay, Google Pay. Transação em segundos, recibo enviado por email opcional.</p>
+            <p data-lang="en">Contactless card (debit/credit), MBway, Apple Pay, Google Pay. Transaction in seconds, optional email receipt.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Quanto custa um batido ao membro?</span>
+            <span data-lang="en">How much does a shake cost the member?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">O preço médio situa-se entre €3 e €5 consoante a receita (whey, isolado, vegan). Preços finais definidos em conjunto com o ginásio e o parceiro territorial, considerando o mercado local.</p>
+            <p data-lang="en">Average price sits between €3 and €5 depending on the recipe (whey, isolate, vegan). Final pricing is set jointly with the gym and territory partner, based on local market conditions.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Produzem a proteína?</span>
+            <span data-lang="en">Do you manufacture the protein?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Não. Trabalhamos com marcas de suplementação estabelecidas e certificadas. A nossa tecnologia é a infraestrutura de distribuição — máquina, plataforma, logística e operação.</p>
+            <p data-lang="en">No. We work with established, certified supplement brands. Our technology is the distribution infrastructure — machine, platform, logistics and operations.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Planeiam expandir para outros países?</span>
+            <span data-lang="en">Are you expanding to other countries?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">A curto prazo: Portugal e Espanha. Médio prazo: mercados ibéricos adjacentes e sul de França. Se estás noutro país e vês uma oportunidade, escreve-nos — avaliamos caso a caso.</p>
+            <p data-lang="en">Short term: Portugal and Spain. Medium term: adjacent Iberian markets and southern France. If you're elsewhere and see an opportunity, get in touch — we evaluate case by case.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span data-lang="pt">Como contactam os meus dados?</span>
+            <span data-lang="en">How do you handle my data?</span>
+            <span class="plus">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p data-lang="pt">Cumprimos integralmente o RGPD. Detalhes completos na nossa <a href="../privacy/index.html">Política de Privacidade</a>. Em resumo: usamos os teus dados apenas para te responder, e nunca os vendemos a terceiros.</p>
+            <p data-lang="en">We fully comply with GDPR. Full details in our <a href="../privacy/index.html">Privacy Policy</a>. In short: we use your data only to respond to you, and never sell it to third parties.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:80px; padding:60px 40px; background:var(--navy); color:var(--paper); border-radius:28px; text-align:center; border:1px solid var(--line-light);">
+      <h3 style="font-family:'Archivo',sans-serif; font-weight:800; font-size:40px; letter-spacing:-0.035em; line-height:1; margin-bottom:18px; color:var(--paper);" data-lang="pt">Ainda com <span style="color:var(--green);">dúvidas</span>?</h3>
+      <h3 style="font-family:'Archivo',sans-serif; font-weight:800; font-size:40px; letter-spacing:-0.035em; line-height:1; margin-bottom:18px; color:var(--paper);" data-lang="en">Still have <span style="color:var(--green);">questions</span>?</h3>
+      <p style="color:rgba(244,241,234,0.65); margin-bottom:32px; font-size:17px; max-width:480px; margin-left:auto; margin-right:auto;" data-lang="pt">Escreve-nos. Respondemos em 24–48h úteis, direto do fundador.</p>
+      <p style="color:rgba(244,241,234,0.65); margin-bottom:32px; font-size:17px; max-width:480px; margin-left:auto; margin-right:auto;" data-lang="en">Get in touch. We reply in 24–48 business hours, straight from the founder.</p>
+      <a href="../index.html#contact" class="btn btn-primary">
+        <span data-lang="pt">Falar com a equipa</span><span data-lang="en">Talk to the team</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-big">
+      <svg viewBox="0 0 1320 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <text x="50%" y="82%" text-anchor="middle" font-size="290">PROTEINOMAT</text>
+      </svg>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5 data-lang="pt">O que fazemos</h5><h5 data-lang="en">What we do</h5>
+        <p data-lang="pt">Máquinas inteligentes de batidos de proteína, feitas para ginásios ibéricos. Operado em Pombal.</p>
+        <p data-lang="en">Smart protein shake vending machines, built for Iberian gyms. Operated from Pombal.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/proteinomat" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://linkedin.com/company/proteinomat" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5 data-lang="pt">Contacto</h5><h5 data-lang="en">Contact</h5>
+        <a href="mailto:hello@proteinomat.pt">hello@proteinomat.pt</a>
+        <a href="mailto:partners@proteinomat.pt">partners@proteinomat.pt</a>
+        <p class="footer-address">
+          <strong>Batista &amp; Lazarchick, Lda</strong><br>
+          NIF: 519003829<br>
+          R. Miguel Bombarda 34<br>
+          3100-440 Pombal · Portugal
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5 data-lang="pt">Site</h5><h5 data-lang="en">Site</h5>
+        <a href="../index.html" data-lang="pt">Início</a><a href="../index.html" data-lang="en">Home</a>
+        <a href="../partners/index.html" data-lang="pt">Parceiros</a><a href="../partners/index.html" data-lang="en">Partners</a>
+        <a href="../faq/index.html">FAQ</a>
+        <a href="../index.html#contact" data-lang="pt">Contacto</a><a href="../index.html#contact" data-lang="en">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="../privacy/index.html" data-lang="pt">Privacidade</a><a href="../privacy/index.html" data-lang="en">Privacy</a>
+        <a href="../terms/index.html" data-lang="pt">Termos</a><a href="../terms/index.html" data-lang="en">Terms</a>
+        <a href="../cookies/index.html" data-lang="pt">Cookies</a><a href="../cookies/index.html" data-lang="en">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BATISTA &amp; LAZARCHICK LDA · NIF 519003829</div>
+      <div data-lang="pt">OPERADO EM POMBAL, PORTUGAL</div>
+      <div data-lang="en">OPERATED FROM POMBAL, PORTUGAL</div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../assets/js/main.js?v=10"></script>
+<script>
+  // FAQ tabs
+  document.querySelectorAll('.faq-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const panel = tab.dataset.panel;
+      // Only toggle tabs of the current language
+      const currentLang = document.body.classList.contains('lang-en') ? 'en' : 'pt';
+      document.querySelectorAll(`.faq-tab[data-lang="${currentLang}"]`).forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + panel).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

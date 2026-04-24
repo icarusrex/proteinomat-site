@@ -1,0 +1,10 @@
+# Redirect old single-page to homepage
+/proteinomat-index.html  /  301
+
+# Catch URL variants without trailing slash (Cloudflare Pages handles most of this automatically,
+# but explicit is safer)
+/partners   /partners/   301
+/faq        /faq/        301
+/privacy    /privacy/    301
+/terms      /terms/      301
+/cookies    /cookies/    301
