@@ -81,36 +81,50 @@
 
   // ========== FORMSPREE ==========
   document.querySelectorAll('form[data-formspree]').forEach(form => {
+    // Hide any static feedback elements the HTML author may have left behind
+    form.querySelectorAll('.form-success, .form-error').forEach(el => {
+      el.style.setProperty('display', 'none', 'important');
+    });
+
+    // Create a single dynamic feedback container appended to the form
+    let feedback = form.querySelector('.form-feedback-dynamic');
+    if (!feedback) {
+      feedback = document.createElement('div');
+      feedback.className = 'form-feedback-dynamic';
+      feedback.style.cssText = 'display:none; padding:18px 22px; border-radius:14px; font-size:15px; margin-top:14px; font-weight:600;';
+      form.appendChild(feedback);
+    }
+
+    const showFeedback = (type) => {
+      const lang = document.body.classList.contains('lang-en') ? 'en' : 'pt';
+      const messages = {
+        success: {
+          pt: 'Obrigado. Respondemos em 24–48h.',
+          en: "Thanks. We'll reply in 24–48h."
+        },
+        error: {
+          pt: 'Algo correu mal. Tenta de novo ou escreve para aron@proteinomat.com.',
+          en: 'Something went wrong. Try again or email aron@proteinomat.com.'
+        }
+      };
+      const colors = {
+        success: 'background: var(--green, #B8F04A); color: var(--navy, #0A1628);',
+        error:   'background: rgba(255, 107, 74, 0.15); color: var(--rust, #FF6B4A); border: 1px solid rgba(255,107,74,0.3);'
+      };
+      feedback.textContent = messages[type][lang];
+      feedback.style.cssText = 'display:block; padding:18px 22px; border-radius:14px; font-size:15px; margin-top:14px; font-weight:600;' + colors[type];
+    };
+
+    const hideFeedback = () => {
+      feedback.style.cssText = 'display:none;';
+    };
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const endpoint = form.getAttribute('action');
-      const allFeedback = form.querySelectorAll('.form-success, .form-error');
-      const successEls = form.querySelectorAll('.form-success');
-      const errorEls = form.querySelectorAll('.form-error');
       const submitBtn = form.querySelector('button[type="submit"]');
-      const currentLang = document.body.classList.contains('lang-en') ? 'en' : 'pt';
 
-      // Nuclear reset: hide ALL feedback via inline style with !important (beats any CSS)
-      const hideAll = () => {
-        allFeedback.forEach(el => {
-          el.classList.remove('show');
-          el.style.setProperty('display', 'none', 'important');
-        });
-      };
-      // Show ONLY the matching-language variant of one kind
-      const showOne = (elements) => {
-        elements.forEach(el => {
-          if (el.getAttribute('data-lang') === currentLang) {
-            el.classList.add('show');
-            el.style.setProperty('display', 'block', 'important');
-          } else {
-            el.classList.remove('show');
-            el.style.setProperty('display', 'none', 'important');
-          }
-        });
-      };
-
-      hideAll();
+      hideFeedback();
       if (submitBtn) submitBtn.disabled = true;
 
       try {
@@ -119,16 +133,14 @@
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        hideAll();
         if (resp.ok) {
           form.reset();
-          showOne(successEls);
+          showFeedback('success');
         } else {
-          showOne(errorEls);
+          showFeedback('error');
         }
       } catch (err) {
-        hideAll();
-        showOne(errorEls);
+        showFeedback('error');
       } finally {
         if (submitBtn) submitBtn.disabled = false;
       }
