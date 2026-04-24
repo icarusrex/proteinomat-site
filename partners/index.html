@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/css/main.css?v=10" />
+<link rel="stylesheet" href="../assets/css/main.css?v=15" />
 <style>
 .partner-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
 .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 80px; }
@@ -226,31 +226,46 @@
 .map-tooltip {
   position: absolute;
   background: var(--navy);
-  border: 1px solid var(--green);
-  border-radius: 12px;
-  padding: 12px 16px;
+  border: 1.5px solid var(--green);
+  border-radius: 14px;
+  padding: 14px 20px;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
   pointer-events: none;
   opacity: 0;
-  transform: translate(-50%, -120%);
-  transition: opacity 0.2s;
+  transform: translate(-50%, calc(-100% - 18px));
+  transition: opacity 0.18s ease, transform 0.2s ease;
   z-index: 10;
   white-space: nowrap;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6), 0 0 0 3px rgba(184,240,74,0.08);
 }
-.map-tooltip.visible { opacity: 1; }
+.map-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--navy);
+  border-right: 1.5px solid var(--green);
+  border-bottom: 1.5px solid var(--green);
+}
+.map-tooltip.visible {
+  opacity: 1;
+  transform: translate(-50%, calc(-100% - 14px));
+}
 .map-tooltip .tooltip-city {
   font-family: 'Archivo', sans-serif;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--paper);
+  letter-spacing: -0.01em;
   margin-bottom: 4px;
 }
 .map-tooltip .tooltip-status {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .map-tooltip[data-status="covered"] .tooltip-status { color: var(--green); }
@@ -343,10 +358,11 @@
       <div class="partners-stat-card">
         <div class="label" data-lang="pt">Modelo · partilha recorrente</div>
         <div class="label" data-lang="en">Model · recurring share</div>
-        <div class="big-num" data-lang="pt">%<span style="font-size:36px;"> do lucro</span></div>
-        <div class="big-num" data-lang="en">%<span style="font-size:36px;"> of profit</span></div>
-        <p data-lang="pt">Uma parte fixa do lucro líquido de cada máquina no teu território — enquanto ela funcionar. Sem teto, sem data de validade.</p>
-        <p data-lang="en">A fixed share of net profit from every machine in your territory — for as long as it runs. No cap, no expiry.</p>
+        <div class="big-num">€/<span style="font-size:36px; letter-spacing:-0.01em;">mês</span></div>
+        <div class="stat-hook" data-lang="pt">Enquanto cada máquina funcionar.</div>
+        <div class="stat-hook" data-lang="en">For as long as each machine runs.</div>
+        <p data-lang="pt">Uma parte fixa do lucro líquido de cada máquina no teu território, paga todos os meses para o teu IBAN. Sem teto. Sem data de expiração.</p>
+        <p data-lang="en">A fixed share of the net profit of every machine in your territory, paid monthly to your IBAN. No cap. No expiry.</p>
       </div>
     </div>
   </div>
@@ -464,8 +480,8 @@
 
     <!-- IDEAL PARTNER PROFILES -->
     <div class="section-label reveal"><span data-lang="pt">Quem procuramos</span><span data-lang="en">Who we're looking for</span></div>
-    <h2 class="section-title reveal" data-lang="pt">Três perfis <span class="accent">que funcionam</span>.</h2>
-    <h2 class="section-title reveal" data-lang="en">Three profiles <span class="accent">that work</span>.</h2>
+    <h2 class="section-title reveal" data-lang="pt">Quatro perfis <span class="accent">que funcionam</span>.</h2>
+    <h2 class="section-title reveal" data-lang="en">Four profiles <span class="accent">that work</span>.</h2>
     <p class="section-lead reveal" data-lang="pt">Não precisas de ser empresário a tempo inteiro. Mas precisas de uma destas bases — rede, experiência de venda, ou conhecimento profundo do mundo dos ginásios.</p>
     <p class="section-lead reveal" data-lang="en">You don't need to be a full-time entrepreneur. But you need one of these foundations — a network, sales experience, or deep knowledge of the gym world.</p>
 
@@ -721,8 +737,8 @@
         </button>
         <div class="form-success" data-lang="pt">Recebido. Respondemos em 48h úteis.</div>
         <div class="form-success" data-lang="en">Got it. We'll reply within 48 business hours.</div>
-        <div class="form-error" data-lang="pt">Algo correu mal. Tenta de novo ou escreve para partners@proteinomat.pt.</div>
-        <div class="form-error" data-lang="en">Something went wrong. Try again or email partners@proteinomat.pt.</div>
+        <div class="form-error" data-lang="pt">Algo correu mal. Tenta de novo ou escreve para aron@proteinomat.com.</div>
+        <div class="form-error" data-lang="en">Something went wrong. Try again or email aron@proteinomat.com.</div>
       </form>
     </div>
   </div>
@@ -730,11 +746,7 @@
 
 <footer>
   <div class="container">
-    <div class="footer-big">
-      <svg viewBox="0 0 1320 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <text x="50%" y="82%" text-anchor="middle" font-size="290">PROTEINOMAT</text>
-      </svg>
-    </div>
+    <div class="footer-big">PROTEINOMAT</div>
     <div class="footer-grid">
       <div class="footer-col">
         <h5 data-lang="pt">O que fazemos</h5><h5 data-lang="en">What we do</h5>
@@ -747,8 +759,7 @@
       </div>
       <div class="footer-col">
         <h5 data-lang="pt">Contacto</h5><h5 data-lang="en">Contact</h5>
-        <a href="mailto:hello@proteinomat.pt">hello@proteinomat.pt</a>
-        <a href="mailto:partners@proteinomat.pt">partners@proteinomat.pt</a>
+        <a href="mailto:aron@proteinomat.com">aron@proteinomat.com</a>
         <p class="footer-address">
           <strong>Batista &amp; Lazarchick, Lda</strong><br>
           NIF: 519003829<br>
@@ -780,13 +791,16 @@
 
 
 
-<script src="../assets/js/main.js?v=10"></script>
+<script src="../assets/js/main.js?v=15"></script>
 <script>
   // ===== INTERACTIVE MAP TOOLTIP =====
   (function() {
-    const map = document.getElementById('iberiaMap');
+    const mapContainer = document.getElementById('iberiaMap');
     const tooltip = document.getElementById('mapTooltip');
-    if (!map || !tooltip) return;
+    if (!mapContainer || !tooltip) return;
+
+    const svg = mapContainer.querySelector('svg');
+    if (!svg) return;
 
     const statusLabels = {
       covered: { pt: 'Coberto · Parceiro ativo', en: 'Covered · Partner active' },
@@ -796,37 +810,63 @@
 
     const cityEl = tooltip.querySelector('.tooltip-city');
     const statusEl = tooltip.querySelector('.tooltip-status');
+    let activeMarker = null;
 
-    map.querySelectorAll('.marker').forEach(marker => {
-      marker.addEventListener('mouseenter', (e) => showTooltip(marker));
-      marker.addEventListener('mousemove', (e) => positionTooltip(e));
-      marker.addEventListener('mouseleave', () => hideTooltip());
-      marker.addEventListener('focus', () => showTooltip(marker));
-      marker.addEventListener('blur', () => hideTooltip());
-      marker.setAttribute('tabindex', '0');
-    });
-
-    function showTooltip(marker) {
+    // Show tooltip anchored to marker's center (SVG coords → screen coords via container)
+    function anchorToMarker(marker) {
       const city = marker.dataset.city;
       const status = marker.dataset.status;
       const lang = document.body.classList.contains('lang-en') ? 'en' : 'pt';
+
       cityEl.textContent = city;
       statusEl.textContent = statusLabels[status][lang];
       tooltip.setAttribute('data-status', status);
-      tooltip.classList.add('visible');
-    }
 
-    function positionTooltip(e) {
-      const rect = map.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      // Get marker's position relative to the map container
+      const markerRect = marker.getBoundingClientRect();
+      const mapRect = mapContainer.getBoundingClientRect();
+      const x = markerRect.left - mapRect.left + (markerRect.width / 2);
+      const y = markerRect.top - mapRect.top;
+
       tooltip.style.left = x + 'px';
       tooltip.style.top = y + 'px';
+      tooltip.classList.add('visible');
+      activeMarker = marker;
     }
 
-    function hideTooltip() {
+    function hide() {
       tooltip.classList.remove('visible');
+      activeMarker = null;
     }
+
+    mapContainer.querySelectorAll('.marker').forEach(marker => {
+      marker.setAttribute('tabindex', '0');
+      // Desktop hover
+      marker.addEventListener('mouseenter', () => anchorToMarker(marker));
+      marker.addEventListener('mouseleave', hide);
+      // Keyboard focus
+      marker.addEventListener('focus', () => anchorToMarker(marker));
+      marker.addEventListener('blur', hide);
+      // Mobile touch / tap
+      marker.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activeMarker === marker) {
+          hide();
+        } else {
+          anchorToMarker(marker);
+        }
+      });
+    });
+
+    // Dismiss tooltip when tapping outside
+    document.addEventListener('click', (e) => {
+      if (!mapContainer.contains(e.target)) hide();
+    });
+
+    // Reposition tooltip if window resizes while visible
+    window.addEventListener('resize', () => {
+      if (activeMarker) anchorToMarker(activeMarker);
+    });
   })();
 </script>
 </body>
