@@ -88,9 +88,29 @@
       const successEls = form.querySelectorAll('.form-success');
       const errorEls = form.querySelectorAll('.form-error');
       const submitBtn = form.querySelector('button[type="submit"]');
+      const currentLang = document.body.classList.contains('lang-en') ? 'en' : 'pt';
 
-      // Hide all feedback messages before new submission
-      allFeedback.forEach(el => el.classList.remove('show'));
+      // Nuclear reset: hide ALL feedback via inline style with !important (beats any CSS)
+      const hideAll = () => {
+        allFeedback.forEach(el => {
+          el.classList.remove('show');
+          el.style.setProperty('display', 'none', 'important');
+        });
+      };
+      // Show ONLY the matching-language variant of one kind
+      const showOne = (elements) => {
+        elements.forEach(el => {
+          if (el.getAttribute('data-lang') === currentLang) {
+            el.classList.add('show');
+            el.style.setProperty('display', 'block', 'important');
+          } else {
+            el.classList.remove('show');
+            el.style.setProperty('display', 'none', 'important');
+          }
+        });
+      };
+
+      hideAll();
       if (submitBtn) submitBtn.disabled = true;
 
       try {
@@ -99,17 +119,16 @@
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        // Ensure absolutely nothing is shown before picking one
-        allFeedback.forEach(el => el.classList.remove('show'));
+        hideAll();
         if (resp.ok) {
           form.reset();
-          successEls.forEach(el => el.classList.add('show'));
+          showOne(successEls);
         } else {
-          errorEls.forEach(el => el.classList.add('show'));
+          showOne(errorEls);
         }
       } catch (err) {
-        allFeedback.forEach(el => el.classList.remove('show'));
-        errorEls.forEach(el => el.classList.add('show'));
+        hideAll();
+        showOne(errorEls);
       } finally {
         if (submitBtn) submitBtn.disabled = false;
       }

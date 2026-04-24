@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://proteinomat.pt/sitemap.xml
+Sitemap: https://proteinomat.com/sitemap.xml

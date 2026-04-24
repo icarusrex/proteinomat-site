@@ -3,18 +3,93 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Proteinomat — Protein Shakes 24/7 Inside Your Gym</title>
-<meta name="description" content="Smart protein shake vending machines for gyms. Zero upfront cost. Unlock effortless revenue. Built in Portugal." />
-<meta property="og:title" content="Proteinomat — Protein Shakes 24/7 Inside Your Gym" />
-<meta property="og:description" content="Unlock effortless revenue. Fuel your members." />
+<title>Proteinomat — Máquina de Batidos Proteicos para Ginásios</title>
+<meta name="description" content="Máquina de batidos proteicos para o teu ginásio ou academia. Instalação sem custo inicial, partilhamos os lucros. Batidos frescos na hora, 24/7. Portugal e Espanha." />
+<meta name="keywords" content="máquina de vending para ginásio, máquina de batidos proteicos, vending proteína ginásio, máquina de proteína para academia, parceria máquina vending ginásio" />
+<meta property="og:title" content="Proteinomat — Máquina de Batidos Proteicos para Ginásios" />
+<meta property="og:description" content="Batidos frescos, 24/7, dentro do teu ginásio. Zero investimento inicial. Partilhamos os lucros." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://proteinomat.pt" />
+<meta property="og:url" content="https://proteinomat.com/" />
+<meta property="og:locale" content="pt_PT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:site_name" content="Proteinomat" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="canonical" href="https://proteinomat.pt/" />
+<link rel="canonical" href="https://proteinomat.com/" />
+<link rel="alternate" hreflang="pt" href="https://proteinomat.com/" />
+<link rel="alternate" hreflang="en" href="https://proteinomat.com/" />
+<link rel="alternate" hreflang="x-default" href="https://proteinomat.com/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/main.css?v=16" />
+<link rel="stylesheet" href="assets/css/main.css?v=19" />
+
+<!-- Organization schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Proteinomat",
+  "legalName": "Batista & Lazarchick, Lda",
+  "url": "https://proteinomat.com/",
+  "logo": "https://proteinomat.com/favicon.svg",
+  "description": "Máquinas inteligentes de batidos de proteína para ginásios ibéricos. Operado em Pombal.",
+  "email": "aron@proteinomat.com",
+  "taxID": "PT519003829",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Miguel Bombarda 34",
+    "addressLocality": "Pombal",
+    "postalCode": "3100-440",
+    "addressCountry": "PT"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Portugal" },
+    { "@type": "Country", "name": "Spain" }
+  ]
+}
+</script>
+
+<!-- LocalBusiness schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://proteinomat.com/#business",
+  "name": "Proteinomat",
+  "image": "https://proteinomat.com/assets/img/hero-machine.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Miguel Bombarda 34",
+    "addressLocality": "Pombal",
+    "postalCode": "3100-440",
+    "addressCountry": "PT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.9167,
+    "longitude": -8.6278
+  },
+  "email": "aron@proteinomat.com",
+  "url": "https://proteinomat.com/",
+  "priceRange": "€€"
+}
+</script>
+
+<!-- Service schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Protein shake vending machine placement for gyms",
+  "name": "Máquina de Batidos Proteicos para Ginásios",
+  "provider": { "@id": "https://proteinomat.com/#business" },
+  "areaServed": [
+    { "@type": "Country", "name": "Portugal" },
+    { "@type": "Country", "name": "Spain" }
+  ],
+  "description": "Instalação de máquinas de batidos proteicos em ginásios sem investimento inicial. Partilha de lucros, manutenção e reabastecimento incluídos."
+}
+</script>
 <style>
 /* ===== HERO (homepage only) ===== */
 .hero {
@@ -471,6 +546,7 @@ h1.hero-title .unit {
   <div class="inner">
     <a href="index.html" class="logo"><span class="dot"></span>PROTEINOMAT</a>
     <ul class="nav-links">
+      <li><a href="para-ginasios/index.html" data-lang="pt">Para Ginásios</a><a href="para-ginasios/index.html" data-lang="en">For Gyms</a></li>
       <li><a href="#how" data-lang="pt">Como Funciona</a><a href="#how" data-lang="en">How It Works</a></li>
       <li><a href="#tech" data-lang="pt">Tecnologia</a><a href="#tech" data-lang="en">Technology</a></li>
       <li><a href="partners/index.html" data-lang="pt">Parceiros</a><a href="partners/index.html" data-lang="en">Partners</a></li>
@@ -491,6 +567,7 @@ h1.hero-title .unit {
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="para-ginasios/index.html" data-lang="pt">Para Ginásios</a><a href="para-ginasios/index.html" data-lang="en">For Gyms</a>
   <a href="#how" data-lang="pt">Como Funciona</a><a href="#how" data-lang="en">How It Works</a>
   <a href="#tech" data-lang="pt">Tecnologia</a><a href="#tech" data-lang="en">Technology</a>
   <a href="partners/index.html" data-lang="pt">Parceiros</a><a href="partners/index.html" data-lang="en">Partners</a>
@@ -518,8 +595,8 @@ h1.hero-title .unit {
           24/7 inside<br>
           <span class="white">your gym.</span>
         </h1>
-        <p class="hero-lead" data-lang="pt">Máquinas inteligentes que servem 10+ receitas quentes e frias em 30 segundos. Zero investimento inicial. Tu dás o espaço. Nós tratamos de tudo.</p>
-        <p class="hero-lead" data-lang="en">Smart machines pouring 10+ hot and chilled drinks in 30 seconds. Zero upfront cost. You provide the space. We handle the rest.</p>
+        <p class="hero-lead" data-lang="pt">Máquinas inteligentes que servem 10+ batidos frescos em 30 segundos. Zero investimento inicial. Tu dás o espaço. Nós tratamos de tudo.</p>
+        <p class="hero-lead" data-lang="en">Smart machines pouring 10+ freshly-blended chilled shakes in 30 seconds. Zero upfront cost. You provide the space. We handle the rest.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">
             <span data-lang="pt">Quero uma máquina</span><span data-lang="en">Get a machine</span>
@@ -566,8 +643,8 @@ h1.hero-title .unit {
         <div class="num">02 / MEMBERS LOVE IT</div>
         <h3 data-lang="pt">Os teus membros adoram.</h3>
         <h3 data-lang="en">Your members love it.</h3>
-        <p data-lang="pt">10+ sabores quentes e frios, 24/7. Pagamento em segundos — cartão, MBway, Apple Pay. Mais satisfação, mais retenção.</p>
-        <p data-lang="en">10+ hot and chilled flavours, 24/7. Pay in seconds — card, MBway, Apple Pay. Higher satisfaction, higher retention.</p>
+        <p data-lang="pt">10+ batidos frescos e premium, 24/7. Pagamento em segundos — cartão, MBway, Apple Pay. Mais satisfação, mais retenção.</p>
+        <p data-lang="en">10+ freshly-blended premium shakes, 24/7. Pay in seconds — card, MBway, Apple Pay. Higher satisfaction, higher retention.</p>
         <div class="icon-big">+</div>
       </div>
       <div class="why-card reveal">
@@ -595,7 +672,7 @@ h1.hero-title .unit {
       <div class="tech-card reveal"><div class="tech-icon">↻</div><h4 data-lang="pt">Auto-limpeza inteligente</h4><h4 data-lang="en">Smart auto-cleaning</h4><p data-lang="pt">Ciclos de higienização automáticos entre utilizações. Sem intervenção do staff.</p><p data-lang="en">Automatic sanitation cycles between uses. No staff intervention needed.</p></div>
       <div class="tech-card reveal"><div class="tech-icon">☁</div><h4 data-lang="pt">Gestão na cloud</h4><h4 data-lang="en">Cloud management</h4><p data-lang="pt">Dashboard em tempo real. Vendas, stocks, diagnóstico remoto 24/7.</p><p data-lang="en">Real-time dashboard. Sales, stock, and remote diagnostics 24/7.</p></div>
       <div class="tech-card reveal"><div class="tech-icon">◼</div><h4 data-lang="pt">Ecrã tátil HD</h4><h4 data-lang="en">HD touchscreen</h4><p data-lang="pt">Interface de um toque. Personaliza com a tua marca, promoções e PT.</p><p data-lang="en">One-touch interface. Customize with your branding, promos, and PT offers.</p></div>
-      <div class="tech-card reveal"><div class="tech-icon">✦</div><h4 data-lang="pt">10+ receitas</h4><h4 data-lang="en">10+ recipes</h4><p data-lang="pt">Whey, isolado, vegan, quentes ou frias. Catálogo rotativo, sempre com whey premium.</p><p data-lang="en">Whey, isolate, vegan, hot or cold. Rotating catalog, always premium whey.</p></div>
+      <div class="tech-card reveal"><div class="tech-icon">✦</div><h4 data-lang="pt">10+ receitas</h4><h4 data-lang="en">10+ recipes</h4><p data-lang="pt">Whey, isolado, vegan, frescos. Catálogo rotativo, sempre com whey premium.</p><p data-lang="en">Whey, isolate, vegan, freshly-blended. Rotating catalog, always premium whey.</p></div>
     </div>
   </div>
 </section>
@@ -804,10 +881,6 @@ h1.hero-title .unit {
         <h5 data-lang="pt">O que fazemos</h5><h5 data-lang="en">What we do</h5>
         <p data-lang="pt">Máquinas inteligentes de batidos de proteína, feitas para ginásios ibéricos. Operado em Pombal.</p>
         <p data-lang="en">Smart protein shake vending machines, built for Iberian gyms. Operated from Pombal.</p>
-        <div class="footer-socials">
-          <a href="https://instagram.com/proteinomat" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-          <a href="https://linkedin.com/company/proteinomat" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-        </div>
       </div>
       <div class="footer-col">
         <h5 data-lang="pt">Contacto</h5><h5 data-lang="en">Contact</h5>
@@ -843,7 +916,7 @@ h1.hero-title .unit {
 
 
 
-<script src="assets/js/main.js?v=16"></script>
+<script src="assets/js/main.js?v=19"></script>
 <script>
   // ===== INTERACTIVE MACHINE =====
   (function() {
