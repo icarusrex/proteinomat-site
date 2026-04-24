@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/main.css?v=21" />
+<link rel="stylesheet" href="assets/css/main.css?v=23" />
 
 <!-- Organization schema -->
 <script type="application/ld+json">
@@ -259,6 +259,115 @@ h1.hero-title .unit {
   text-transform: uppercase;
   animation: promptPulse 2.2s ease-in-out infinite;
   transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Nutrition overlay shown after pour completes — covers only the machine screen area */
+.nutrition-card {
+  position: absolute;
+  /* Screen area coordinates: x=40, y=40, w=200, h=130 within 280x440 viewBox */
+  top: 9.1%;
+  left: 14.3%;
+  width: 71.4%;
+  height: 29.5%;
+  z-index: 10;
+  background: linear-gradient(135deg, rgba(10,22,40,0.97), rgba(21,34,56,0.97));
+  border: 1.5px solid var(--green);
+  border-radius: 10px;
+  padding: 10px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+  transform-origin: center;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.85, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(184,240,74,0.35), inset 0 0 0 1px rgba(184,240,74,0.1);
+  overflow: hidden;
+}
+.nutrition-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 30px;
+  background: radial-gradient(ellipse at top, rgba(184,240,74,0.22), transparent 70%);
+  pointer-events: none;
+}
+.nutrition-card.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.nut-header { text-align: center; position: relative; }
+.nut-flavor {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--green);
+  margin-bottom: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nut-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(184,240,74,0.55);
+}
+.nut-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  margin: 4px 0 3px;
+  position: relative;
+}
+.nut-stat {
+  padding: 4px 2px;
+  background: rgba(184,240,74,0.08);
+  border: 1px solid rgba(184,240,74,0.22);
+  border-radius: 4px;
+  text-align: center;
+}
+.nut-val {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 1px;
+}
+.nut-lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 6px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(184,240,74,0.7);
+  line-height: 1;
+}
+.nut-close-hint {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 6px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(184,240,74,0.5);
+  animation: nutHintPulse 1.8s ease-in-out infinite;
+  position: relative;
+  line-height: 1.2;
+}
+@keyframes nutHintPulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
 }
 .machine-prompt .prompt-arrow {
   font-size: 16px;
@@ -801,6 +910,50 @@ h1.hero-title .unit {
             <rect x="30" y="415" width="40" height="3" rx="1.5" fill="#C8FF5A"/>
           </svg>
 
+          <!-- Nutrition overlay (shown after pour completes) -->
+          <div class="nutrition-card" id="nutritionCard" aria-hidden="true">
+            <div class="nut-header">
+              <div class="nut-flavor" id="nutFlavor">—</div>
+              <div class="nut-subtitle" data-lang="pt">Valor nutricional · por dose</div>
+              <div class="nut-subtitle" data-lang="en">Nutritional value · per serving</div>
+            </div>
+            <div class="nut-grid">
+              <div class="nut-stat">
+                <div class="nut-val" id="nutProtein">—</div>
+                <div class="nut-lbl" data-lang="pt">Proteína</div>
+                <div class="nut-lbl" data-lang="en">Protein</div>
+              </div>
+              <div class="nut-stat">
+                <div class="nut-val" id="nutKcal">—</div>
+                <div class="nut-lbl">kcal</div>
+              </div>
+              <div class="nut-stat">
+                <div class="nut-val" id="nutCarbs">—</div>
+                <div class="nut-lbl" data-lang="pt">Hidratos</div>
+                <div class="nut-lbl" data-lang="en">Carbs</div>
+              </div>
+              <div class="nut-stat">
+                <div class="nut-val" id="nutSugar">—</div>
+                <div class="nut-lbl" data-lang="pt">Açúcares</div>
+                <div class="nut-lbl" data-lang="en">Sugars</div>
+              </div>
+              <div class="nut-stat">
+                <div class="nut-val" id="nutFat">—</div>
+                <div class="nut-lbl" data-lang="pt">Gordura</div>
+                <div class="nut-lbl" data-lang="en">Fat</div>
+              </div>
+              <div class="nut-stat">
+                <div class="nut-val" id="nutWhey">—</div>
+                <div class="nut-lbl" data-lang="pt">Tipo whey</div>
+                <div class="nut-lbl" data-lang="en">Whey type</div>
+              </div>
+            </div>
+            <div class="nut-close-hint">
+              <span data-lang="pt">Toca para voltar ao menu</span>
+              <span data-lang="en">Tap to return to menu</span>
+            </div>
+          </div>
+
           <!-- Tap-to-try hint (dismisses after first interaction) -->
           <div class="machine-prompt" id="machinePrompt">
             <span class="prompt-arrow">↑</span>
@@ -918,7 +1071,7 @@ h1.hero-title .unit {
 
 
 
-<script src="assets/js/main.js?v=21"></script>
+<script src="assets/js/main.js?v=23"></script>
 <script>
   // ===== INTERACTIVE MACHINE =====
   (function() {
@@ -930,8 +1083,27 @@ h1.hero-title .unit {
     const pourStream = machine.querySelector('#pourStream');
     const statusText = machine.querySelector('#statusText');
     const prompt = machine.querySelector('#machinePrompt');
+    const nutCard = document.getElementById('nutritionCard');
+    const nutFlavor = document.getElementById('nutFlavor');
+    const nutProtein = document.getElementById('nutProtein');
+    const nutKcal = document.getElementById('nutKcal');
+    const nutCarbs = document.getElementById('nutCarbs');
+    const nutSugar = document.getElementById('nutSugar');
+    const nutFat = document.getElementById('nutFat');
+    const nutWhey = document.getElementById('nutWhey');
 
     let isPouring = false;
+    let nutritionShown = false;
+
+    // Flavor-specific nutritional data (per serving)
+    const NUTRITION = {
+      green:   { pt: 'Matcha Verde',   en: 'Green Matcha',   protein: '24g', kcal: '118', carbs: '3.2g', sugar: '1.8g', fat: '1.4g', whey: 'Isolado' },
+      choc:    { pt: 'Chocolate',      en: 'Chocolate',      protein: '26g', kcal: '134', carbs: '4.1g', sugar: '2.3g', fat: '1.8g', whey: 'Concentrado' },
+      straw:   { pt: 'Morango',        en: 'Strawberry',     protein: '24g', kcal: '120', carbs: '3.6g', sugar: '2.1g', fat: '1.3g', whey: 'Concentrado' },
+      vanilla: { pt: 'Baunilha',       en: 'Vanilla',        protein: '25g', kcal: '122', carbs: '3.0g', sugar: '1.5g', fat: '1.2g', whey: 'Isolado' },
+      berry:   { pt: 'Frutos Silvestres', en: 'Wild Berry',  protein: '24g', kcal: '126', carbs: '3.8g', sugar: '2.4g', fat: '1.4g', whey: 'Concentrado' },
+      mocha:   { pt: 'Mocha',          en: 'Mocha',          protein: '25g', kcal: '128', carbs: '3.5g', sugar: '1.9g', fat: '1.6g', whey: 'Concentrado' }
+    };
 
     function getLang() {
       return document.body.classList.contains('lang-en') ? 'en' : 'pt';
@@ -939,6 +1111,30 @@ h1.hero-title .unit {
 
     function setStatus(pt, en) {
       statusText.textContent = getLang() === 'en' ? en : pt;
+    }
+
+    function showNutrition(flavor) {
+      const data = NUTRITION[flavor];
+      if (!data) return;
+      const lang = getLang();
+      nutFlavor.textContent = data[lang];
+      nutProtein.textContent = data.protein;
+      nutKcal.textContent = data.kcal;
+      nutCarbs.textContent = data.carbs;
+      nutSugar.textContent = data.sugar;
+      nutFat.textContent = data.fat;
+      // Whey type is translatable
+      const wheyTranslations = { 'Isolado': 'Isolate', 'Concentrado': 'Concentrate' };
+      nutWhey.textContent = lang === 'en' ? (wheyTranslations[data.whey] || data.whey) : data.whey;
+      nutCard.classList.add('visible');
+      nutCard.setAttribute('aria-hidden', 'false');
+      nutritionShown = true;
+    }
+
+    function hideNutrition() {
+      nutCard.classList.remove('visible');
+      nutCard.setAttribute('aria-hidden', 'true');
+      nutritionShown = false;
     }
 
     function resetCup() {
@@ -950,13 +1146,20 @@ h1.hero-title .unit {
       setStatus('', '');
     }
 
+    function fullReset() {
+      hideNutrition();
+      resetCup();
+      isPouring = false;
+    }
+
     function pour(tile) {
-      if (isPouring) return;
+      if (isPouring || nutritionShown) return;
       isPouring = true;
 
       // Hide prompt permanently after first interaction
       if (prompt) prompt.classList.add('hidden');
 
+      const flavor = tile.dataset.flavor;
       const gradId = tile.dataset.gradient;
       const fillUrl = `url(#${gradId})`;
       const namePt = tile.dataset.namePt;
@@ -977,12 +1180,10 @@ h1.hero-title .unit {
 
       // Show stream
       pourStream.setAttribute('opacity', '0.9');
-      // Animate stream height (230 top → 310 bottom = 80 units)
       animateAttr(pourStream, 'height', 0, 80, 600);
 
       // Animate cup fill after brief delay
       setTimeout(() => {
-        // Cup interior: y from 310 to ~240 (70 units of fill), height from 0 to 70
         animateAttr(cupFill, 'y', 310, 240, 1800);
         animateAttr(cupFill, 'height', 0, 70, 1800);
       }, 400);
@@ -993,23 +1194,21 @@ h1.hero-title .unit {
         pourStream.setAttribute('height', '0');
       }, 2000);
 
-      // Status: ready
+      // Status: ready, then reveal nutrition card
       setTimeout(() => {
-        setStatus('PRONTO · RETIRE O COPO', 'READY · TAKE YOUR CUP');
+        setStatus('PRONTO · VALOR NUTRICIONAL', 'READY · NUTRITIONAL INFO');
       }, 2300);
 
-      // Reset after a pause
       setTimeout(() => {
-        resetCup();
+        showNutrition(flavor);
         isPouring = false;
-      }, 4500);
+      }, 2800);
     }
 
     function animateAttr(el, attr, from, to, duration) {
       const start = performance.now();
       function step(now) {
         const t = Math.min(1, (now - start) / duration);
-        // Ease-out cubic
         const eased = 1 - Math.pow(1 - t, 3);
         const current = from + (to - from) * eased;
         el.setAttribute(attr, current);
@@ -1019,13 +1218,26 @@ h1.hero-title .unit {
     }
 
     tiles.forEach(tile => {
-      tile.addEventListener('click', () => pour(tile));
+      tile.addEventListener('click', (e) => {
+        e.stopPropagation();
+        pour(tile);
+      });
       tile.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           pour(tile);
         }
       });
+    });
+
+    // Tap nutrition card → dismiss
+    nutCard.addEventListener('click', fullReset);
+
+    // Tap anywhere on the machine (outside tiles, while nutrition shown) → dismiss
+    machine.addEventListener('click', (e) => {
+      if (nutritionShown && !e.target.closest('.flavor-tile')) {
+        fullReset();
+      }
     });
   })();
 </script>
