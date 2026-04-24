@@ -426,7 +426,11 @@ form button[type="submit"] { align-self: flex-start; margin-top: 16px; }
 .form-success, .form-error { display: none; padding: 18px 22px; border-radius: 14px; font-size: 15px; margin-top: 14px; font-weight: 600; }
 .form-success { background: var(--green); color: var(--navy); }
 .form-error { background: rgba(255, 107, 74, 0.15); color: var(--rust); border: 1px solid rgba(255,107,74,0.3); }
-.form-success.show, .form-error.show { display: block; }
+/* Visible only when BOTH .show added by JS AND language matches body class. !important needed to beat [data-lang] hiding rule. */
+body.lang-pt .form-success[data-lang="pt"].show,
+body.lang-pt .form-error[data-lang="pt"].show,
+body.lang-en .form-success[data-lang="en"].show,
+body.lang-en .form-error[data-lang="en"].show { display: block !important; }
 
 section.light form input, section.light form textarea, section.light form select { background: rgba(10,22,40,0.04); border-color: var(--line-dark); color: var(--navy); }
 section.light form input::placeholder, section.light form textarea::placeholder { color: rgba(10,22,40,0.35); }

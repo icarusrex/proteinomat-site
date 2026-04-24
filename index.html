@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/main.css?v=15" />
+<link rel="stylesheet" href="assets/css/main.css?v=16" />
 <style>
 /* ===== HERO (homepage only) ===== */
 .hero {
@@ -64,8 +64,8 @@
 .hero .container { position: relative; z-index: 2; }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.9fr;
+  gap: 40px;
   align-items: center;
 }
 
@@ -121,15 +121,19 @@ h1.hero-title .unit {
 /* Product visual */
 .hero-visual {
   position: relative;
-  aspect-ratio: 3/4;
-  max-width: 100%;
-  margin-left: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .hero-visual img {
   width: 100%;
-  height: 100%;
+  max-width: 720px;
+  height: auto;
   object-fit: contain;
   filter: drop-shadow(0 40px 80px rgba(0,0,0,0.75)) drop-shadow(0 0 80px rgba(184,240,74,0.22));
+  transform: scale(1.15);
+  transform-origin: center;
 }
 /* Fallback SVG if photo not yet uploaded */
 .hero-visual .machine-placeholder {
@@ -452,6 +456,7 @@ h1.hero-title .unit {
   .hero { padding: 120px 0 60px; min-height: auto; }
   .hero-grid { grid-template-columns: 1fr; gap: 60px; }
   .hero-visual { max-width: 440px; margin: 0 auto; }
+  .hero-visual img { transform: none; }
   .why-grid, .steps-block, .tech-grid, .partner-teaser-wrap, .contact-wrap { grid-template-columns: 1fr; }
   .step { border-right: none; border-bottom: 1px solid var(--line-light); padding: 36px 0 !important; }
   .step:last-child { border-bottom: none; }
@@ -838,7 +843,7 @@ h1.hero-title .unit {
 
 
 
-<script src="assets/js/main.js?v=15"></script>
+<script src="assets/js/main.js?v=16"></script>
 <script>
   // ===== INTERACTIVE MACHINE =====
   (function() {
