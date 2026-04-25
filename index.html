@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/main.css?v=28" rel="stylesheet"/>
+<link href="assets/css/main.css?v=30" rel="stylesheet"/>
 <!-- Organization schema -->
 <script type="application/ld+json">
 {
@@ -443,6 +443,50 @@ h1.hero-title .unit {
   0%, 100% { opacity: 0.7; }
   50%      { opacity: 1; }
 }
+
+/* Reward badge — "+€3" floats up-and-right when a transaction completes */
+.reward-badge {
+  position: absolute;
+  /* Start position: roughly above the cup, slightly right of center */
+  bottom: 30%;
+  left: 55%;
+  transform: translate(-50%, 0) scale(0.8);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  background: var(--green);
+  padding: 5px 12px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 0 18px rgba(184,240,74,0.6), 0 6px 14px rgba(0,0,0,0.3);
+  z-index: 11;
+  text-shadow: none;
+}
+.reward-badge.flying {
+  animation: rewardFly 1.6s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+@keyframes rewardFly {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.6) rotate(-4deg);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -8px) scale(1.05) rotate(2deg);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(-30%, -40px) scale(1) rotate(4deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(70%, -130px) scale(0.85) rotate(8deg);
+  }
+}
 .machine-prompt .prompt-arrow {
   font-size: 16px;
   line-height: 1;
@@ -843,7 +887,7 @@ h1.hero-title .unit {
 <div class="tech-grid">
 <div class="tech-card reveal"><div class="tech-icon">€</div><h4 data-lang="pt">Pagamento contactless</h4><h4 data-lang="en">Contactless payment</h4><h4 data-lang="es">Pago sin contacto</h4><p data-lang="pt">Cartão, MBway, Apple Pay. Transações seguras e fluídas em segundos.</p><p data-lang="en">Card, MBway, Apple Pay. Secure, seamless transactions in seconds.</p><p data-lang="es">Card, MBway, Apple Pay. Secure, seamless transactions in seconds.</p></div>
 <div class="tech-card reveal"><div class="tech-icon">◈</div><h4 data-lang="pt">Dispensação de precisão</h4><h4 data-lang="en">Precision dispensing</h4><h4 data-lang="es">Dosificación precisa</h4><p data-lang="pt">Dosagem exata de pó e líquido. Mistura consistente, sabor ideal em cada chávena.</p><p data-lang="en">Exact powder and liquid dosing. Consistent mix, optimal taste every cup.</p><p data-lang="es">Dosificación precisa de polvo y líquido. Mezcla consistente, sabor ideal en cada vaso.</p></div>
-<div class="tech-card reveal"><div class="tech-icon">↻</div><h4 data-lang="pt">Auto-limpeza inteligente</h4><h4 data-lang="en">Smart auto-cleaning</h4><h4 data-lang="es">Smart auto-cleaning</h4><p data-lang="pt">Ciclos de higienização automáticos entre utilizações. Sem intervenção do staff.</p><p data-lang="en">Automatic sanitation cycles between uses. No staff intervention needed.</p><p data-lang="es">Automatic sanitation cycles between uses. No staff intervention needed.</p></div>
+<div class="tech-card reveal"><div class="tech-icon">↻</div><h4 data-lang="pt">Auto-limpeza inteligente</h4><h4 data-lang="en">Smart auto-cleaning</h4><h4 data-lang="es">Smart auto-cleaning</h4><p data-lang="pt">Ciclos automáticos de higienização entre utilizações. Pensada para se manter limpa.</p><p data-lang="en">Automatic sanitation cycles between uses. Built to stay clean.</p><p data-lang="es">Ciclos automáticos de higienización entre usos. Diseñada para mantenerse limpia.</p></div>
 <div class="tech-card reveal"><div class="tech-icon">☁</div><h4 data-lang="pt">Gestão na cloud</h4><h4 data-lang="en">Cloud management</h4><h4 data-lang="es">Gestión en la nube</h4><p data-lang="pt">Dashboard em tempo real. Vendas, stocks, diagnóstico remoto 24/7.</p><p data-lang="en">Real-time dashboard. Sales, stock, and remote diagnostics 24/7.</p><p data-lang="es">Dashboard en tiempo real. Ventas, stock y diagnóstico remoto 24/7.</p></div>
 <div class="tech-card reveal"><div class="tech-icon">◼</div><h4 data-lang="pt">Ecrã tátil HD</h4><h4 data-lang="en">HD touchscreen</h4><h4 data-lang="es">Pantalla táctil HD</h4><p data-lang="pt">Interface de um toque. Personaliza com a tua marca, promoções e PT.</p><p data-lang="en">One-touch interface. Customize with your branding, promos, and PT offers.</p><p data-lang="es">Interfaz de un toque. Personalízala con tu marca, promociones y ofertas de PT.</p></div>
 <div class="tech-card reveal"><div class="tech-icon">✦</div><h4 data-lang="pt">10+ receitas</h4><h4 data-lang="en">10+ recipes</h4><h4 data-lang="es">10+ recetas</h4>H+ recetas<p data-lang="pt">Whey, isolado, vegan, frescos. Catálogo rotativo, sempre com whey premium.</p><p data-lang="en">Whey, isolate, vegan, freshly-blended. Rotating catalog, always premium whey.</p><p data-lang="es">Whey, aislado, vegano, frescos. Catálogo rotativo, siempre con whey premium.</p></div>
@@ -1001,6 +1045,9 @@ h1.hero-title .unit {
 <span data-lang="pt">Toca num sabor para experimentar</span>
 <span data-lang="en">Tap a flavour to try it</span><span data-lang="es">Toca un sabor para probarlo</span>
 </div>
+
+<!-- Reward badge — animates upward from cup area when transaction completes -->
+<div class="reward-badge" id="rewardBadge" aria-hidden="true">+€3</div>
 </div>
 <!-- METRIC CARDS (moved here from hero) -->
 <div class="contact-metrics">
@@ -1104,7 +1151,7 @@ h1.hero-title .unit {
 </div>
 </div>
 </footer>
-<script src="assets/js/main.js?v=28"></script>
+<script src="assets/js/main.js?v=30"></script>
 <script>
   // ===== INTERACTIVE MACHINE =====
   (function() {
@@ -1118,6 +1165,7 @@ h1.hero-title .unit {
     const prompt = machine.querySelector('#machinePrompt');
     const nutCard = document.getElementById('nutritionCard');
     const dispenseLoader = document.getElementById('dispenseLoader');
+    const rewardBadge = document.getElementById('rewardBadge');
     const nutFlavor = document.getElementById('nutFlavor');
     const nutEnergy = document.getElementById('nutEnergy');
     const nutFat = document.getElementById('nutFat');
@@ -1191,6 +1239,9 @@ h1.hero-title .unit {
         dispenseLoader.classList.remove('visible');
         dispenseLoader.setAttribute('aria-hidden', 'true');
       }
+      if (rewardBadge) {
+        rewardBadge.classList.remove('flying');
+      }
       isPouring = false;
     }
 
@@ -1254,6 +1305,13 @@ h1.hero-title .unit {
           dispenseLoader.setAttribute('aria-hidden', 'true');
         }
         showNutrition(flavor);
+        // Reward badge: gym makes €3
+        if (rewardBadge) {
+          rewardBadge.classList.remove('flying');
+          // Force reflow so the class re-add re-triggers the animation
+          void rewardBadge.offsetWidth;
+          rewardBadge.classList.add('flying');
+        }
         isPouring = false;
       }, 2800);
     }
