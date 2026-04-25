@@ -109,9 +109,9 @@
           es: 'Gracias. Respondemos en 24–48h.'
         },
         error: {
-          pt: 'Algo correu mal. Tenta de novo ou escreve para aron@proteinomat.com.',
-          en: 'Something went wrong. Try again or email aron@proteinomat.com.',
-          es: 'Algo salió mal. Inténtalo de nuevo o escribe a aron@proteinomat.com.'
+          pt: 'Algo correu mal. Tenta de novo daqui a uns minutos.',
+          en: 'Something went wrong. Try again in a moment.',
+          es: 'Algo salió mal. Inténtalo de nuevo en un momento.'
         }
       };
       const colors = {

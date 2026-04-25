@@ -528,4 +528,9 @@ footer { background: var(--navy-deep); color: var(--paper); padding: 100px 0 40p
   .footer-bottom { flex-direction: column; text-align: center; }
   .cookie-banner { left: 16px; right: 16px; bottom: 16px; padding: 22px; }
   nav.top .inner { padding: 0 24px; }
+  /* Hide nav CTA on mobile — menu toggle gives access via mobile menu */
+  .btn-nav { display: none; }
+  /* Tighten nav-right gap and lang pill so all 3 lang buttons fit */
+  .nav-right { gap: 10px; }
+  .lang button { padding: 5px 10px; font-size: 10px; }
 }
