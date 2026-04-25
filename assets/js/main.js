@@ -7,12 +7,15 @@
   const body = document.body;
 
   // ========== LANGUAGE TOGGLE ==========
-  // Simple: body always has exactly one of lang-pt or lang-en
-  const savedLang = localStorage.getItem('pm_lang') || 'pt';
+  // Body always has exactly one of lang-pt, lang-en, lang-es
+  const VALID_LANGS = ['pt', 'en', 'es'];
+  let savedLang = localStorage.getItem('pm_lang');
+  if (!VALID_LANGS.includes(savedLang)) savedLang = 'pt';
   setLang(savedLang);
 
   function setLang(lang) {
-    body.classList.remove('lang-pt', 'lang-en');
+    if (!VALID_LANGS.includes(lang)) lang = 'pt';
+    body.classList.remove('lang-pt', 'lang-en', 'lang-es');
     body.classList.add('lang-' + lang);
     document.querySelectorAll('[data-set-lang]').forEach(b => {
       b.classList.toggle('active', b.dataset.setLang === lang);
@@ -96,15 +99,19 @@
     }
 
     const showFeedback = (type) => {
-      const lang = document.body.classList.contains('lang-en') ? 'en' : 'pt';
+      let lang = 'pt';
+      if (document.body.classList.contains('lang-en')) lang = 'en';
+      else if (document.body.classList.contains('lang-es')) lang = 'es';
       const messages = {
         success: {
           pt: 'Obrigado. Respondemos em 24–48h.',
-          en: "Thanks. We'll reply in 24–48h."
+          en: "Thanks. We'll reply in 24–48h.",
+          es: 'Gracias. Respondemos en 24–48h.'
         },
         error: {
           pt: 'Algo correu mal. Tenta de novo ou escreve para aron@proteinomat.com.',
-          en: 'Something went wrong. Try again or email aron@proteinomat.com.'
+          en: 'Something went wrong. Try again or email aron@proteinomat.com.',
+          es: 'Algo salió mal. Inténtalo de nuevo o escribe a aron@proteinomat.com.'
         }
       };
       const colors = {

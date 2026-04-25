@@ -54,6 +54,7 @@ img { max-width: 100%; display: block; }
 [data-lang] { display: none !important; }
 body.lang-pt [data-lang="pt"] { display: revert !important; }
 body.lang-en [data-lang="en"] { display: revert !important; }
+body.lang-es [data-lang="es"] { display: revert !important; }
 
 /* NAV */
 nav.top {
