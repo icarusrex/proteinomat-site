@@ -126,13 +126,34 @@
       feedback.style.cssText = 'display:none;';
     };
 
+    const getLang = () => {
+      const b = document.body.classList;
+      if (b.contains('lang-en')) return 'en';
+      if (b.contains('lang-es')) return 'es';
+      return 'pt';
+    };
+
+    const sendingLabels = {
+      pt: 'A enviar…',
+      en: 'Sending…',
+      es: 'Enviando…'
+    };
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const endpoint = form.getAttribute('action');
       const submitBtn = form.querySelector('button[type="submit"]');
 
       hideFeedback();
-      if (submitBtn) submitBtn.disabled = true;
+
+      // Save the original button content so we can restore it later
+      let originalBtnHTML = null;
+      if (submitBtn) {
+        originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-sending');
+        submitBtn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span><span>' + sendingLabels[getLang()] + '</span>';
+      }
 
       try {
         const resp = await fetch(endpoint, {
@@ -149,7 +170,11 @@
       } catch (err) {
         showFeedback('error');
       } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('is-sending');
+          if (originalBtnHTML !== null) submitBtn.innerHTML = originalBtnHTML;
+        }
       }
     });
   });

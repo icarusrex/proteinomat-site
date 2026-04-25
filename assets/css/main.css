@@ -424,6 +424,27 @@ form select option { background: var(--navy); color: var(--paper); }
 form textarea { min-height: 140px; resize: vertical; }
 form label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(244,241,234,0.55); margin-bottom: -8px; margin-top: 10px; }
 form button[type="submit"] { align-self: flex-start; margin-top: 16px; }
+
+/* Submit button — instant "sending" state with spinner */
+form button[type="submit"].is-sending {
+  opacity: 0.85;
+  cursor: wait;
+}
+form button[type="submit"]:disabled { cursor: wait; }
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  margin-right: 10px;
+  vertical-align: -2px;
+  animation: btnSpin 0.7s linear infinite;
+}
+@keyframes btnSpin {
+  to { transform: rotate(360deg); }
+}
 .form-success, .form-error { display: none; padding: 18px 22px; border-radius: 14px; font-size: 15px; margin-top: 14px; font-weight: 600; }
 .form-success { background: var(--green); color: var(--navy); }
 .form-error { background: rgba(255, 107, 74, 0.15); color: var(--rust); border: 1px solid rgba(255,107,74,0.3); }
