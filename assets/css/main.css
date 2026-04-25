@@ -200,7 +200,7 @@ nav.top .inner {
 .btn:hover .arrow { transform: translateX(5px); }
 
 /* SECTIONS */
-section { padding: 140px 0; position: relative; }
+section { padding: 90px 0; position: relative; }
 
 .section-label {
   display: inline-flex;
@@ -521,7 +521,7 @@ footer { background: var(--navy-deep); color: var(--paper); padding: 100px 0 40p
   .fit-side.yes { border-bottom: 1px solid var(--line-light); }
   .territory-grid { grid-template-columns: 1fr; }
   .container, .container-narrow { padding: 0 24px; }
-  section { padding: 90px 0; }
+  section { padding: 64px 0; }
   .page-hero { padding: 140px 0 70px; }
   .apply-box { padding: 56px 28px; }
   .econ-wrap { padding: 44px 28px; }
