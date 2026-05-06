@@ -4,14 +4,14 @@
    ======================================================================== */
 
 :root {
-  --navy: #0A1628;
-  --navy-deep: #060E1C;
-  --navy-soft: #152238;
+  --navy: #0d172a;
+  --navy-deep: #08111f;
+  --navy-soft: #18243c;
   --green: #B8F04A;
   --green-bright: #C8FF5A;
   --green-deep: #8BC720;
   --paper: #F4F1EA;
-  --ink: #0A1628;
+  --ink: #0d172a;
   --rust: #FF6B4A;
   --mute: rgba(244,241,234,0.55);
   --mute-dark: rgba(10,22,40,0.55);
