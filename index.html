@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/main.css?v=37" rel="stylesheet"/>
+<link href="assets/css/main.css?v=38" rel="stylesheet"/>
 <!-- Organization schema -->
 <script type="application/ld+json">
 {
@@ -105,39 +105,36 @@
   content: "";
   position: absolute;
   top: 50%;
-  left: 65%;
-  width: 160vw;
-  height: 130vw;
-  max-width: 2400px;
-  max-height: 1700px;
+  left: 70%;
+  width: 110vw;
+  height: 90vw;
+  max-width: 1800px;
+  max-height: 1400px;
   background-image: url("assets/img/hero-splash.webp");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-  opacity: 0.85;
-  mix-blend-mode: screen;
+  background-size: cover;
+  opacity: 1;
   pointer-events: none;
   z-index: 0;
   transform: translate(-50%, -50%);
 }
-/* Subtle ambient dots — fill left side empty space, recede where splash is */
+/* Subtle ambient dots — soft cream sparkle across hero */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(244,241,234,0.32) 1.2px, transparent 1.8px),
-    radial-gradient(circle, rgba(184,240,74,0.22) 1px, transparent 1.5px);
-  background-size: 70px 70px, 110px 110px;
-  background-position: 0 0, 35px 55px;
+  background-image: radial-gradient(circle, rgba(244,241,234,0.28) 1.1px, transparent 1.7px);
+  background-size: 80px 80px;
+  background-position: 0 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   opacity: 1;
   animation: heroTwinkle 5s ease-in-out infinite;
 }
 @keyframes heroTwinkle {
-  0%, 100% { opacity: 0.4; }
-  50%      { opacity: 0.75; }
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.7; }
 }
 .hero .container { position: relative; z-index: 2; }
 .hero-grid {
@@ -209,7 +206,7 @@ h1.hero-title .unit {
   max-width: 720px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.75)) drop-shadow(0 0 80px rgba(184,240,74,0.22));
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.75));
   transform: scale(1.15);
   transform-origin: center;
 }
@@ -1164,7 +1161,7 @@ h1.hero-title .unit {
 </div>
 </div>
 </footer>
-<script src="assets/js/main.js?v=37"></script>
+<script src="assets/js/main.js?v=38"></script>
 <script>
   // ===== INTERACTIVE MACHINE =====
   (function() {
