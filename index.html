@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/main.css?v=34" rel="stylesheet"/>
+<link href="assets/css/main.css?v=36" rel="stylesheet"/>
 <!-- Organization schema -->
 <script type="application/ld+json">
 {
@@ -104,25 +104,30 @@
 .hero::before {
   content: "";
   position: absolute;
-  top: 30%;
-  left: 55%;
-  width: 80vw;
-  height: 80vw;
-  max-width: 1100px;
-  max-height: 1100px;
-  background: radial-gradient(circle, rgba(184,240,74,0.18) 0%, rgba(184,240,74,0.05) 30%, transparent 60%);
+  top: 50%;
+  left: 70%;
+  width: 90vw;
+  height: 75vw;
+  max-width: 1300px;
+  max-height: 900px;
+  background-image: url("assets/img/hero-splash.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.7;
+  mix-blend-mode: screen;
   pointer-events: none;
   z-index: 0;
   transform: translate(-50%, -50%);
 }
-/* Protein powder splash — subtle twinkling dots, even density across hero */
+/* Subtle ambient dots — fill left side empty space, recede where splash is */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle, rgba(244,241,234,0.55) 1.2px, transparent 1.8px),
-    radial-gradient(circle, rgba(184,240,74,0.4) 1px, transparent 1.5px);
+    radial-gradient(circle, rgba(244,241,234,0.32) 1.2px, transparent 1.8px),
+    radial-gradient(circle, rgba(184,240,74,0.22) 1px, transparent 1.5px);
   background-size: 70px 70px, 110px 110px;
   background-position: 0 0, 35px 55px;
   pointer-events: none;
@@ -131,8 +136,8 @@
   animation: heroTwinkle 5s ease-in-out infinite;
 }
 @keyframes heroTwinkle {
-  0%, 100% { opacity: 0.55; }
-  50%      { opacity: 1; }
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.75; }
 }
 .hero .container { position: relative; z-index: 2; }
 .hero-grid {
@@ -763,8 +768,8 @@ h1.hero-title .unit {
 @media (max-width: 960px) {
   .hero { padding: 120px 0 60px; min-height: auto; }
   .hero-grid { grid-template-columns: 1fr; gap: 60px; }
-  .hero-visual { max-width: 440px; margin: 0 auto; }
-  .hero-visual img { transform: none; }
+  .hero-visual { max-width: 100%; margin: 0 auto; }
+  .hero-visual img { transform: scale(1.05); max-width: 100%; }
   .why-grid, .steps-block, .tech-grid, .partner-teaser-wrap, .contact-wrap { grid-template-columns: 1fr; }
   .step { border-right: none; border-bottom: 1px solid var(--line-light); padding: 36px 0 !important; }
   .step:last-child { border-bottom: none; }
@@ -1159,7 +1164,7 @@ h1.hero-title .unit {
 </div>
 </div>
 </footer>
-<script src="assets/js/main.js?v=34"></script>
+<script src="assets/js/main.js?v=36"></script>
 <script>
   // ===== INTERACTIVE MACHINE =====
   (function() {
